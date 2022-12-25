@@ -1,0 +1,45 @@
+{% for student in students %}
+<p>{{student.pk}}</p>
+<p>{{student.name|upper }}</p>
+<p>{{student.studentclass|upper }}</p>
+<p>{{student.rollno|upper }}</p>
+<p>{{student.dob|upper }}</p>
+<p>{{student.gender|upper }}</p>
+<p>{{student.mobilenumber|upper }}</p>
+  <br />
+
+
+{% if student.results.all %}
+<p>Result</p>
+{% for result in student.results.all %}
+<p> {{result.subject}} </p>
+<p> {{result.maxmarks}} </p>
+<p> {{result.marksobt}} </p>
+<p> {{result.remarks}} </p>
+  {% endfor %}
+
+  {% else %}
+  <a href={% url 'resultaddpk' student.pk %}>Add A result</a>
+
+
+  {% endif %}
+</p>
+{% endfor %}
+
+<div class="pagination">
+  <span class="step-links">
+    {% if page_obj.has_previous %}
+    <a href="?page=1">&laquo; first</a>
+    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+    {% endif %}
+
+    <span class="current">
+      Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+    </span>
+
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}">next</a>
+    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+    {% endif %}
+  </span>
+</div>

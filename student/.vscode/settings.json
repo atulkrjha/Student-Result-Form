@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/5381ddf6-d32f-48de-9112-40320984ad48/AppServices/subscriptions/5381ddf6-d32f-48de-9112-40320984ad48/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/django-demo-ss",
+    "appService.deploySubpath": "."
+}
